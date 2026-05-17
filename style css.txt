@@ -21,9 +21,9 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, var(--blue), #003b73);
+ background: linear-gradient(135deg, var(--blue), #003b73);
   color: white;
-  padding: 18px 28px;
+  padding: 18px 28px 25px 28px; /* 🔴 Хээ багтах зай гаргаж доод талын padding-ийг ихэсгэсэн */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +32,45 @@ header {
   position: sticky;
   top: 0;
   z-index: 20;
+  /* 🔴 Хөх дэвсгэр дээр маш бүдэг тойрог уусгалт нэмж хээг илүү гоё харагдуулна */
+  background-image: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 80%), 
+                    linear-gradient(135deg, var(--blue), #003b73);
+}
+
+/* 🔴 "Нүүдэлчин Наадамчид" бичвэрийн хоёр талд үүлэн хээ оруулах хэсэг */
+.cloud-pattern-left::before, 
+.cloud-pattern-right::after {
+    content: "";
+    display: inline-block;
+    width: 35px;  /* Хээний өргөн */
+    height: 20px; /* Хээний өндөр */
+    background-image: url('cloud-pattern.png'); /* 🔴 Таны татсан үүлэн хээний зураг */
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    opacity: 0.8; /* Хэт тод биш харагдуулах бүдгэрүүлэлт */
+}
+
+.cloud-pattern-left::before {
+    margin-right: 12px;
+}
+
+.cloud-pattern-right::after {
+    margin-left: 12px;
+    transform: scaleX(-1); /* Баруун талын үүлэн хээг эргүүлж харуулах */
+}
+
+/* 🔴 Хөх хэсгийн доод ирмэгээр гүйх нарийн алхан хээ */
+.alhan-border-top {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px; /* Алхан хээний өндөр */
+    background-image: url('alhan-khee.png'); /* 🔴 Таны татсан алхан хээний урт тууз зураг */
+    background-repeat: repeat-x; /* Хээг баруун тийш тасралтгүй давтана */
+    background-size: auto 100%;
+    opacity: 0.25; /* Даруухан харагдуулах үүднээс бүдгэрүүлсэн */
 }
 
 .logo { font-size: 24px; font-weight: 900; }
