@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ХҮСЭЛТИЙН ДАГУУ TITLE ӨӨРЧЛӨВ -->
   <title>AI TEAM 12 - МОНГОЛ НААДГАЙ</title>
 
   <style>
@@ -33,7 +32,7 @@
       background: linear-gradient(180deg, #bdefff 0%, #fff3bd 45%, #dff7df 100%);
       color: var(--dark);
       line-height: 1.6;
-      letter-spacing: 0.8px; /* Том үсэг хоорондын зайг тохируулав */
+      letter-spacing: 0.8px;
     }
 
     /* --- БҮТЦИЙН CSS ХЭСЭГ --- */
@@ -51,9 +50,73 @@
       z-index: 20;
     }
 
+    /* 🔴 [НЭМЭГДСЭН CSS]: Хөх толгой дотор том Өлзий хээг хөхөөр уусгаж арын дэвсгэр болгох */
+    header::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px; 
+      height: 70px; 
+      background-image: url('ulzii-khee.png'); 
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.15;             /* Маш даруухан бүдэг харагдуулах уусгалт */
+      mix-blend-mode: overlay;   /* Цэнхэр фонтой зөөлөн уусгаж өгнө */
+      pointer-events: none;      
+      z-index: 1;                /* Текстүүдийн ард байрлана */
+    }
+
+    /* 🔴 [НЭМЭГДСЭН CSS]: Хөх толгой доторх үндсэн элементүүдийг хээнээс дээш гаргах тохиргоо */
+    .logo, nav, .lang, .alhan-border-top {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 🔴 [НЭМЭГДСЭН CSS]: Зүүн талын Үүлэн хээ */
+    .cloud-pattern-left {
+      display: inline-block;
+      width: 35px;
+      height: 20px;
+      background-image: url('cloud-pattern.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    /* 🔴 [НЭМЭГДСЭН CSS]: Баруун талын Үүлэн хээ */
+    .cloud-pattern-right {
+      display: inline-block;
+      width: 35px;
+      height: 20px;
+      background-image: url('cloud-pattern.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin-left: 8px;
+      vertical-align: middle;
+      transform: scaleX(-1); /* Зургийг эсрэг тал руу нь харуулах */
+    }
+
+    /* 🔴 [НЭМЭГДСЭН CSS]: Хөх толгойн доод ирмэгээр гүйх Алхан хээ */
+    .alhan-border-top {
+      position: absolute;
+      bottom: -7px; /* Шар шугамны дээр яг тааруулж байрлуулна */
+      left: 0;
+      width: 100%;
+      height: 7px;
+      background-image: url('alhan-khee.png');
+      background-repeat: repeat-x; /* Хээг хэвтээ тэнхлэг дагуу давтана */
+      background-size: auto 100%;
+    }
+
     .logo {
       font-size: 24px;
       font-weight: 900;
+      display: flex;
+      align-items: center;
     }
 
     nav a {
@@ -338,7 +401,12 @@
 </head>
 <body>
   <header>
-    <div class="logo">🏹 AI TEAM 12</div>
+    <div class="logo">
+      <span class="cloud-pattern-left"></span>
+      Нүүдэлчин Наадамчид
+      <span class="cloud-pattern-right"></span>
+    </div>
+    
     <nav>
       <a href="#learn" data-mn="Мэдлэг" data-en="Learn">Мэдлэг</a>
       <a href="#game" data-mn="Тоглоом" data-en="Game">Тоглоом</a>
@@ -349,6 +417,8 @@
       <button onclick="changeLang('mn')">🇲🇳 MN</button>
       <button onclick="changeLang('en')">🇺🇸 EN</button>
     </div>
+
+    <div class="alhan-border-top"></div>
   </header>
 
   <main>
@@ -359,7 +429,6 @@
       <button class="btn green" onclick="speakText(document.getElementById('heroText').innerText)">🔊 Сонсох</button>
     </section>
 
-    <!-- Скрипт болон бусад хэсэг хэвээрээ үлдэнэ... -->
     <section id="learn">
       <h2>📖 Мэдлэгийн ертөнц</h2>
       <div class="grid">
@@ -371,7 +440,6 @@
           <button class="btn green" onclick="markRead(1)">✅ УНШИЖ ДУУСЛАА</button>
           <button class="btn blue" onclick="speakText(document.getElementById('lesson1').innerText)">🔊 УНШУУЛАХ</button>
         </div>
-        <!-- Бусад картууд... -->
         <div class="card">
           <div class="icon">🐸</div>
           <span class="tag">Алаг мэлхий</span>
@@ -440,7 +508,6 @@
   </footer>
 
   <script>
-    /* ТАНЫ ӨМНӨХ JS КОД ЭНД ХЭВЭЭРЭЭ ҮРГЭЛЖИЛНЭ... */
     let readLessons = new Set();
     let level = 1;
     let score = 0;
@@ -678,4 +745,3 @@
   </script>
 </body>
 </html>
-
