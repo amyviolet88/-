@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI TEAM 12 - МОНГОЛ НААДГАЙ</title>
-
+  <title>Нүүдэлчин Наадамчид - Монгол Наадгай</title>
   <style>
-    /* 1. МОНТСЕРРАТ ФОНТ ДУУДАХ */
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
-
     :root {
       --blue: #0057b8;
       --sky: #8ed6ff;
@@ -20,26 +16,20 @@
       --dark: #263238;
     }
 
-    /* 2. БҮХ ТЕКСТИЙГ ТОМ ҮСЭГ БОЛГОЖ, МОНТСЕРРАТ ФОНТ ОНООХ */
-    * { 
-      box-sizing: border-box; 
-      text-transform: uppercase !important;
-      font-family: 'Montserrat', sans-serif !important;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
+      font-family: Arial, sans-serif;
       background: linear-gradient(180deg, #bdefff 0%, #fff3bd 45%, #dff7df 100%);
       color: var(--dark);
       line-height: 1.6;
-      letter-spacing: 0.8px;
     }
 
-    /* --- БҮТЦИЙН CSS ХЭСЭГ --- */
     header {
       background: linear-gradient(135deg, var(--blue), #003b73);
       color: white;
-      padding: 18px 28px;
+      padding: 12px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -48,9 +38,9 @@
       position: sticky;
       top: 0;
       z-index: 20;
+      overflow: hidden; 
     }
 
-    /* 🔴 [НЭМЭГДСЭН CSS]: Хөх толгой дотор том Өлзий хээг хөхөөр уусгаж арын дэвсгэр болгох */
     header::before {
       content: "";
       position: absolute;
@@ -63,76 +53,57 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      opacity: 0.15;             /* Маш даруухан бүдэг харагдуулах уусгалт */
-      mix-blend-mode: overlay;   /* Цэнхэр фонтой зөөлөн уусгаж өгнө */
+      opacity: 0.15;             
+      mix-blend-mode: overlay;   
       pointer-events: none;      
-      z-index: 1;                /* Текстүүдийн ард байрлана */
+      z-index: 1;                
     }
 
-    /* 🔴 [НЭМЭГДСЭН CSS]: Хөх толгой доторх үндсэн элементүүдийг хээнээс дээш гаргах тохиргоо */
-    .logo, nav, .lang, .alhan-border-top {
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       position: relative;
       z-index: 2;
     }
 
-    /* 🔴 [НЭМЭГДСЭН CSS]: Зүүн талын Үүлэн хээ */
-    .cloud-pattern-left {
-      display: inline-block;
-      width: 35px;
-      height: 20px;
-      background-image: url('cloud-pattern.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      margin-right: 8px;
-      vertical-align: middle;
+    .logo88 {
+      height: 65px; 
+      width: auto;
+      object-fit: contain;
     }
 
-    /* 🔴 [НЭМЭГДСЭН CSS]: Баруун талын Үүлэн хээ */
-    .cloud-pattern-right {
-      display: inline-block;
-      width: 35px;
-      height: 20px;
-      background-image: url('cloud-pattern.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      margin-left: 8px;
-      vertical-align: middle;
-      transform: scaleX(-1); /* Зургийг эсрэг тал руу нь харуулах */
+    .logo-text {
+      font-family: 'Pacifico', 'Brush Script MT', cursive, Arial, sans-serif; 
+      font-size: 26px;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
     }
 
-    /* 🔴 [НЭМЭГДСЭН CSS]: Хөх толгойн доод ирмэгээр гүйх Алхан хээ */
-    .alhan-border-top {
-      position: absolute;
-      bottom: -7px; /* Шар шугамны дээр яг тааруулж байрлуулна */
-      left: 0;
-      width: 100%;
-      height: 7px;
-      background-image: url('alhan-khee.png');
-      background-repeat: repeat-x; /* Хээг хэвтээ тэнхлэг дагуу давтана */
-      background-size: auto 100%;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
+    nav, .lang {
+      position: relative;
+      z-index: 2;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 8px;
-      font-weight: 900;
+      margin: 0 12px;
+      font-weight: bold;
+      font-size: 16px;
     }
+    
+    nav a:hover { color: var(--gold); }
 
     .lang button, .access button {
       border: none;
       background: var(--gold);
       color: #1d1d1d;
-      padding: 8px 16px;
+      padding: 8px 12px;
       border-radius: 999px;
-      font-weight: 900;
+      font-weight: bold;
       cursor: pointer;
       margin: 3px;
     }
@@ -164,7 +135,6 @@
     .hero h1 {
       font-size: 54px;
       margin: 0;
-      font-weight: 900;
       text-shadow: 3px 4px 0 rgba(0,0,0,.18);
     }
 
@@ -172,7 +142,7 @@
       max-width: 780px;
       margin: 16px auto;
       font-size: 22px;
-      font-weight: 700;
+      font-weight: bold;
     }
 
     .btn {
@@ -204,7 +174,6 @@
       border-left: 9px solid var(--gold);
       padding-left: 12px;
       font-size: 30px;
-      font-weight: 900;
     }
 
     .grid {
@@ -222,14 +191,23 @@
       border: 3px solid rgba(255,202,40,.55);
     }
 
-    .card h3 { color: var(--red); margin-top: 8px; font-weight: 900; }
+    .card h3 { color: var(--red); margin-top: 8px; }
     .icon { font-size: 60px; text-align: center; }
+    
+    .card-img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 12px;
+      border-radius: 14px;
+    }
+
     .tag {
       display: inline-block;
       background: var(--gold);
       border-radius: 999px;
       padding: 5px 12px;
-      font-weight: 900;
+      font-weight: bold;
       color: #4b3300;
       font-size: 13px;
     }
@@ -244,7 +222,7 @@
       border-radius: 22px;
       padding: 16px;
       font-size: 18px;
-      font-weight: 900;
+      font-weight: bold;
     }
 
     .progress {
@@ -281,7 +259,7 @@
       border: 3px solid #ffd166;
       background: #fff4cf;
       cursor: pointer;
-      font-weight: 900;
+      font-weight: bold;
       font-size: 16px;
     }
 
@@ -378,47 +356,47 @@
       animation: pop .45s ease;
     }
 
-    footer {
-      background: #003b73;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      font-weight: 900;
-      border-top: 7px solid var(--gold);
-    }
+    .reward .badge { font-size: 84px; }
+    .sparkle { font-size: 32px; animation: sparkle 1s infinite alternate; }
+    @keyframes pop { from { transform: scale(.84); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes sparkle { from { transform: scale(1); } to { transform: scale(1.08); } }
 
     .large-text { font-size: 22px; }
     .contrast { background: #111 !important; color: white !important; }
     .contrast .card, .contrast .panel, .contrast .game-box { background: #222; color: white; border-color: white; }
 
+    footer {
+      background: #003b73;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      border-top: 7px solid var(--gold);
+    }
+
     @media (max-width: 760px) {
-      header { flex-direction: column; }
+      header { flex-direction: column; gap: 10px; }
       nav a { display: inline-block; margin: 5px; }
-      .hero h1 { font-size: 34px; }
+      .hero h1 { font-size: 38px; }
       .hero::after { font-size: 26px; letter-spacing: 8px; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo">
-      <span class="cloud-pattern-left"></span>
-      Нүүдэлчин Наадамчид
-      <span class="cloud-pattern-right"></span>
+    <div class="logo-container">
+      <img src="logo88.png" alt="🐫" class="logo88" onerror="this.style.display='none'"> 
+      <span class="logo-text">Нүүдэлчин Наадамчид</span>
     </div>
-    
     <nav>
       <a href="#learn" data-mn="Мэдлэг" data-en="Learn">Мэдлэг</a>
       <a href="#game" data-mn="Тоглоом" data-en="Game">Тоглоом</a>
       <a href="#reward" data-mn="Урамшуулал" data-en="Reward">Урамшуулал</a>
-      <a href="#access" data-mn="Тэгш хамруулах" data-en="Accessibility">Тэгш хамруулах</a>
     </nav>
     <div class="lang">
       <button onclick="changeLang('mn')">🇲🇳 MN</button>
       <button onclick="changeLang('en')">🇺🇸 EN</button>
     </div>
-
-    <div class="alhan-border-top"></div>
   </header>
 
   <main>
@@ -431,33 +409,37 @@
 
     <section id="learn">
       <h2>📖 Мэдлэгийн ертөнц</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="icon">🎲</div>
-          <span class="tag">Шагай</span>
-          <h3>Шагайн дөрвөн тал</h3>
-          <p id="lesson1">Шагай нь морь, хонь, тэмээ, ямаа гэсэн дөрвөн янзаар буудаг. Шагайгаар тоглох нь ажиглах, тоолох, хурдан сэтгэх чадварыг хөгжүүлдэг.</p>
-          <button class="btn green" onclick="markRead(1)">✅ УНШИЖ ДУУСЛАА</button>
-          <button class="btn blue" onclick="speakText(document.getElementById('lesson1').innerText)">🔊 УНШУУЛАХ</button>
+        <div class="grid">
+          <div class="card">
+            <div class="icon">🎲</div>
+            <img src="shagai.png" alt="Шагай" class="card-img" onerror="this.style.display='none'">
+            <span class="tag">Шагай</span>
+            <h3>Шагайн дөрвөн тал</h3>
+            <p id="lesson1">Шагай нь морь, хонь, тэмээ, ямаа гэсэн дөрвөн янзаар буудаг. Шагайгаар тоглох нь ажиглах, тоолох, хурдан сэтгэх чадварыг хөгжүүлдэг.</p>
+            <button class="btn green" onclick="markRead(1)">✅ УНШИЖ ДУУСЛАА</button>
+            <button class="btn blue" onclick="speakText(document.getElementById('lesson1').innerText)">🔊 УНШУУЛАХ</button>
+          </div>
+          
+          <div class="card">
+            <div class="icon">🐢</div>
+            <img src="melhii.png" alt="Алаг мэлхий" class="card-img" onerror="this.style.display='none'">
+            <span class="tag">Алаг мэлхий</span>
+            <h3>Алаг мэлхий</h3>
+            <p id="lesson2">Алаг мэлхий нь шагайгаар өрж тоглодог уламжлалт наадгай. Энэ тоглоом нь тоо бодох, ээлж хүлээх, дүрэм баримтлах чадварыг хөгжүүлдэг.</p>
+            <button class="btn green" onclick="markRead(2)">✅ УНШИЖ ДУУСЛАА</button>
+            <button class="btn blue" onclick="speakText(document.getElementById('lesson2').innerText)">🔊 УНШУУЛАХ</button>
+          </div>
+          
+          <div class="card">
+            <div class="icon">🐎</div>
+            <span class="tag">Морь уралдуулах</span>
+            <h3>Шагайн морь</h3>
+            <p id="lesson3">Шагайг морь болгон уралдуулж тоглодог. Хүүхэд аз, тэвчээр, баярлах болон хүлээцтэй байх зан чанарт суралцдаг.</p>
+            <button class="btn green" onclick="markRead(3)">✅ УНШИЖ ДУУСЛАА</button>
+            <button class="btn blue" onclick="speakText(document.getElementById('lesson3').innerText)">🔊 УНШУУЛАХ</button>
+          </div>
         </div>
-        <div class="card">
-          <div class="icon">🐸</div>
-          <span class="tag">Алаг мэлхий</span>
-          <h3>Алаг мэлхий</h3>
-          <p id="lesson2">Алаг мэлхий нь шагайгаар өрж тоглодог уламжлалт наадгай. Энэ тоглоом нь тоо бодох, ээлж хүлээх, дүрэм баримтлах чадварыг хөгжүүлдэг.</p>
-          <button class="btn green" onclick="markRead(2)">✅ УНШИЖ ДУУСЛАА</button>
-          <button class="btn blue" onclick="speakText(document.getElementById('lesson2').innerText)">🔊 УНШУУЛАХ</button>
-        </div>
-        <div class="card">
-          <div class="icon">🐎</div>
-          <span class="tag">Морь уралдуулах</span>
-          <h3>Шагайн морь</h3>
-          <p id="lesson3">Шагайг морь болгон уралдуулж тоглодог. Хүүхэд аз, тэвчээр, баярлах болон хүлээцтэй байх зан чанарт суралцдаг.</p>
-          <button class="btn green" onclick="markRead(3)">✅ УНШИЖ ДУУСЛАА</button>
-          <button class="btn blue" onclick="speakText(document.getElementById('lesson3').innerText)">🔊 УНШУУЛАХ</button>
-        </div>
-      </div>
-    </section>
+      </section>
 
     <section id="game">
       <h2>🎮 Үе давдаг тоглоом</h2>
@@ -478,33 +460,33 @@
           <div class="badge" id="badgeIcon">🏅</div>
           <h2 id="rewardTitle">Баяр хүргэе!</h2>
           <p id="rewardText">Та мэдлэгээ амжилттай бататгалаа.</p>
-          <button class="btn" onclick="restartGame()">🔁 ДАХИН ТОГЛОХ</button>
+          <button class="btn" onclick="restartGame()">🔁 Дахин тоглох</button>
         </div>
       </div>
     </section>
 
     <section id="reward">
-      <h2>🏆 Урамшуулал</h2>
+      <h2>🏆 Урамшууллын систем</h2>
       <div class="grid">
-        <div class="card"><div class="icon">🥉</div><h3>40 ОНОО</h3><p>Наадгай сонирхогч цол авна.</p></div>
-        <div class="card"><div class="icon">🥈</div><h3>70 ОНОО</h3><p>Өв соёл судлаач цол авна.</p></div>
-        <div class="card"><div class="icon">🥇</div><h3>100 ОНОО</h3><p>Монгол наадгай мастер цол авна.</p></div>
+        <div class="card"><div class="icon">🥉</div><h3>40 оноо</h3><p>Наадгай сонирхогч цол авна.</p></div>
+        <div class="card"><div class="icon">🥈</div><h3>70 оноо</h3><p>Өв соёл судлаач цол авна.</p></div>
+        <div class="card"><div class="icon">🥇</div><h3>100 оноо</h3><p>Монгол наадгай мастер цол авна.</p></div>
       </div>
     </section>
 
     <section id="access">
-      <h2>♿ ТЭГШ ХАМРУУЛАХ</h2>
+      <h2>♿ Тэгш хамруулах тохиргоо</h2>
       <div class="panel access">
-        <button onclick="document.body.classList.toggle('large-text')">A+ ТОМ ҮСЭГ</button>
-        <button onclick="document.body.classList.toggle('contrast')">◐ ӨНДӨР ЯЛГАРАЛ</button>
-        <button onclick="speakText(document.body.innerText.slice(0,600))">🔊 ХУУДАС УНШУУЛАХ</button>
-        <button onclick="stopSpeak()">⏹ ЗОГСООХ</button>
+        <button onclick="document.body.classList.toggle('large-text')">A+ Том үсэг</button>
+        <button onclick="document.body.classList.toggle('contrast')">◐ Өндөр ялгарал</button>
+        <button onclick="speakText(document.body.innerText.slice(0,600))">🔊 Хуудас уншуулах</button>
+        <button onclick="stopSpeak()">⏹ Зогсоох</button>
       </div>
     </section>
   </main>
 
   <footer>
-    © 2026 “AI TEAM 12” — МОНГОЛ НААДГАЙГААР СУРАЛЦАХ ПЛАТФОРМ
+    © 2026 “Нүүдэлчин Наадамчид” — Монгол наадгайгаар суралцах платформ
   </footer>
 
   <script>
@@ -536,12 +518,15 @@
       currentLang = lang;
       document.getElementById('heroTitle').innerText = text[lang].heroTitle;
       document.getElementById('heroText').innerText = text[lang].heroText;
-      document.querySelectorAll('nav a').forEach(a => a.innerText = a.dataset[lang]);
+      document.querySelectorAll('nav a').forEach(a => {
+        let txt = a.getAttribute('data-' + lang);
+        if (txt) a.innerText = txt;
+      });
     }
 
     function markRead(n) {
       readLessons.add(n);
-      showMessage('👏 ' + n + '-Р МЭДЛЭГ УНШИГДЛАА. НИЙТ: ' + readLessons.size + '/3', 'success');
+      showMessage('👏 ' + n + '-р мэдлэг уншигдлаа. Нийт: ' + readLessons.size + '/3', 'success');
       if (readLessons.size === 3) startLevel1();
     }
 
@@ -571,10 +556,10 @@
       document.getElementById('rewardBox').style.display = 'none';
       const q = questions[0];
       document.getElementById('gameBox').innerHTML = `
-        <h3>❓ 1-Р ҮЕ: ШАГАЙН МЭДЛЭГ</h3>
+        <h3>❓ 1-р үе: Шагайн мэдлэг</h3>
         <p>${q.q}</p>
         <div class="choices">${q.c.map(x => `<button onclick="answerQuestion('${x}', '${q.a}', 2)">👉 ${x}</button>`).join('')}</div>`;
-      showMessage('ЗӨВ ХАРИУЛБАЛ 2-Р ҮЕ НЭЭГДЭНЭ.');
+      showMessage('Зөв хариулбал 2-р үе нээгдэнэ.');
     }
 
     function answerQuestion(choice, answer, next) {
@@ -582,19 +567,19 @@
         score += 20;
         level = next;
         updateUI();
-        showMessage('🎉 ЗӨВ БАЙНА! ДАРААГИЙН ҮЕ НЭЭГДЛЭЭ.', 'success');
+        showMessage('🎉 Зөв байна! Дараагийн үе нээгдлээ.', 'success');
         if (next === 2) startLevel2();
         if (next === 3) startLevel3();
         if (next === 4) startLevel4();
       } else {
-        showMessage('😊 ДАХИН ОРОЛДООРОЙ.', 'error');
+        showMessage('😊 Дахин оролдоорой. Мэдлэгээ дахин уншаарай.', 'error');
       }
     }
 
     function startLevel2() {
       const q = questions[1];
       document.getElementById('gameBox').innerHTML = `
-        <h3>🐸 2-Р ҮЕ: АЛАГ МЭЛХИЙ</h3>
+        <h3>🐸 2-р үе: Алаг мэлхий</h3>
         <p>${q.q}</p>
         <div class="choices">${q.c.map(x => `<button onclick="answerQuestion('${x}', '${q.a}', 3)">👉 ${x}</button>`).join('')}</div>`;
     }
@@ -604,12 +589,13 @@
       level = 3;
       updateUI();
       document.getElementById('gameBox').innerHTML = `
-        <h3>🎲 3-Р ҮЕ: ШАГАЙ АНГИЛАХ</h3>
-        <p>МОРЬ ШАГАЙГ СОНГООРОЙ. МОРЬ = 🐎</p>
+        <h3>🎲 3-р үе: Шагай ангилах</h3>
+        <p>Зөвхөн морь шагайг сонгоорой. Морь = 🐎</p>
         <div class="shagai-row">
           ${['🐎','🐑','🐫','🐐','🐎','🐑','🐎','🐐'].map(x => `<div class="shagai" onclick="selectShagai(this, '${x}')">${x}</div>`).join('')}
         </div>
-        <button class="btn" onclick="checkShagai()">✅ ШАЛГАХ</button>`;
+        <button class="btn" onclick="checkShagai()">✅ Шалгах</button>`;
+      showMessage('Морь шагайнуудыг дарж сонгоорой.');
     }
 
     function selectShagai(el, type) {
@@ -628,17 +614,17 @@
         score += 25;
         level = 4;
         updateUI();
-        showMessage('🏅 МАШ САЙН!', 'success');
+        showMessage('🏅 Маш сайн! Морь шагайг зөв ялгалаа.', 'success');
         startLevel4();
       } else {
-        showMessage('😊 3 МОРЬ ШАГАЙГ СОНГООРОЙ.', 'error');
+        showMessage('😊 Зөвхөн 3 морь шагайг сонгоорой.', 'error');
       }
     }
 
     function startLevel4() {
       const q = questions[2];
       document.getElementById('gameBox').innerHTML = `
-        <h3>🐎 4-Р ҮЕ: АСУУЛТ</h3>
+        <h3>🐎 4-р үе: Морь уралдуулахын өмнөх асуулт</h3>
         <p>${q.q}</p>
         <div class="choices">${q.c.map(x => `<button onclick="answerRaceQuestion('${x}', '${q.a}')">👉 ${x}</button>`).join('')}</div>`;
     }
@@ -647,31 +633,33 @@
       if (choice === answer) {
         score += 20;
         level = 5;
-        updateUI();
+        updateUI(); 
+        showMessage('🎉 Зөв! Одоо морь уралдуулъя.', 'success');
         startRace();
       } else {
-        showMessage('😊 ДАХИН ОРОЛДООРОЙ.', 'error');
+        showMessage('😊 Дахин оролдоорой.', 'error');
       }
     }
 
     function startRace() {
       horsePositions = [0, 0, 0];
       document.getElementById('gameBox').innerHTML = `
-        <h3>🏇 5-Р ҮЕ: МОРЬ УРАЛДУУЛАХ</h3>
+        <h3>🏇 5-р үе: Шагайн морь уралдуулах</h3>
+        <p>“Шагай хаях” товчийг дар. Морь буувал таны морь урагшилна.</p>
         <div class="horse-track">
-          <div class="lane">ТА: <span id="h0" class="horse">🐎</span></div>
-          <div class="lane">НАЙЗ: <span id="h1" class="horse">🐎</span></div>
-          <div class="lane">БАГШ: <span id="h2" class="horse">🐎</span></div>
+          <div class="lane">Та: <span id="h0" class="horse">🐎</span></div>
+          <div class="lane">Найз: <span id="h1" class="horse">🐎</span></div>
+          <div class="lane">Багш: <span id="h2" class="horse">🐎</span></div>
         </div>
-        <button class="btn" onclick="rollShagai()">🎲 ШАГАЙ ХАЯХ</button>
-        <button class="btn green" onclick="startFlickGame()">🦴 ШАГАЙ НЯСЛАХ</button>
+        <button class="btn" onclick="rollShagai()">🎲 Шагай хаях</button>
+        <button class="btn green" onclick="startFlickGame()">🦴 Шагай няслах турших</button>
         <p id="rollResult"></p>`;
     }
 
     function rollShagai() {
       const sides = ['морь', 'хонь', 'тэмээ', 'ямаа'];
       const roll = sides[Math.floor(Math.random() * 4)];
-      document.getElementById('rollResult').innerText = '🎲 БУУСАН ТАЛ: ' + roll;
+      document.getElementById('rollResult').innerText = '🎲 Буусан тал: ' + roll;
       if (roll === 'морь') horsePositions[0] += 25;
       horsePositions[1] += Math.random() > .55 ? 18 : 5;
       horsePositions[2] += Math.random() > .6 ? 18 : 5;
@@ -689,11 +677,12 @@
 
     function startFlickGame() {
       document.getElementById('gameBox').innerHTML = `
-        <h3>🦴 ШАГАЙ НЯСЛАХ</h3>
+        <h3>🦴 Нэмэлт тоглоом: Шагай няслах</h3>
+        <p>Няслах товчийг дарахад шагай хөдөлж өөр тал бууна.</p>
         <div class="flick-board"><div id="flickShagai">🦴</div></div>
         <button class="btn" onclick="flickShagai()">НЯСЛАХ!</button>
-        <button class="btn green" onclick="startRace()">🐎 БУЦАХ</button>
-        <p id="flickStatus">МОРЬ БУУЛГАЖ ОНОО АВААРАЙ!</p>`;
+        <button class="btn green" onclick="startRace()">🐎 Уралдаанд буцах</button>
+        <p id="flickStatus">Шагайгаа няслаад оноо аваарай!</p>`;
     }
 
     function flickShagai() {
@@ -708,40 +697,70 @@
       if (randomShape === '🐎') {
         score = Math.min(100, score + 5);
         updateUI();
-        document.getElementById('flickStatus').innerText = 'МОРЬ БУУЛАА! +5 ОНОО';
+        document.getElementById('flickStatus').innerText = 'Морь буулаа! +5 оноо';
       } else {
-        document.getElementById('flickStatus').innerText = randomShape + ' БУУЛАА.';
+        document.getElementById('flickStatus').innerText = randomShape + ' буулаа. Дахин оролдоорой!';
       }
     }
 
     function showReward(win) {
-      document.getElementById('rewardBox').style.display = 'block';
+      const box = document.getElementById('rewardBox');
+      box.style.display = 'block';
       if (win) {
         document.getElementById('badgeIcon').innerText = '🥇';
-        document.getElementById('rewardTitle').innerText = 'ТА ТҮРҮҮЛЛЭЭ!';
-        speakText('БАЯР ХҮРГЭЕ.');
+        document.getElementById('rewardTitle').innerText = 'Баяр хүргэе! Та түрүүллээ!';
+        document.getElementById('rewardText').innerText = 'Таны дүн: ' + score + '/100. Цол: ' + getRank();
+        showMessage('🏆 Та Монгол наадгай мастер боллоо!', 'success');
+        speakText('Баяр хүргэе. Та Монгол наадгай мастер боллоо.');
       } else {
         document.getElementById('badgeIcon').innerText = '🥈';
-        document.getElementById('rewardTitle').innerText = 'САЙН ОРОЛДЛОО!';
+        document.getElementById('rewardTitle').innerText = 'Сайн оролдлоо!';
+        document.getElementById('rewardText').innerText = 'Таны дүн: ' + score + '/100. Дахин тоглож оноогоо ахиулаарай.';
+        showMessage('👏 Сайн байна. Дахин тоглож болно.', 'success');
       }
     }
 
     function restartGame() {
-      location.reload();
+      readLessons = new Set();
+      level = 1;
+      score = 0;
+      selectedShagai = [];
+      horsePositions = [0,0,0];
+      updateUI();
+      document.getElementById('rewardBox').style.display = 'none';
+      document.getElementById('gameBox').innerHTML = '<h3>Тоглоом нээгдэхэд бэлэн</h3><p>Эхлээд дээрх 3 мэдлэгийг уншаарай.</p>';
+      showMessage('📌 Мэдлэг уншсаны дараа тоглоом эхэлнэ.');
+      document.getElementById('learn').scrollIntoView({behavior:'smooth'});
     }
 
     function speakText(value) {
       stopSpeak();
+      if (!window.speechSynthesis) return;
+      
       const utterance = new SpeechSynthesisUtterance(value);
-      utterance.lang = currentLang === 'en' ? 'en-US' : 'mn-MN';
+      if (currentLang === 'en') {
+        utterance.lang = 'en-US';
+      } else {
+        utterance.lang = 'mn-MN';
+        
+        const voices = speechSynthesis.getVoices();
+        const mnVoice = voices.find(v => v.lang.startsWith('mn'));
+        if (!mnVoice && currentLang === 'mn') {
+          alert("Таны төхөөрөмж дээр Монгол хэлний ярианы сан (Voice pack) суугаагүй тул унших боломжгүй байна.");
+          return;
+        }
+      }
       speechSynthesis.speak(utterance);
     }
 
     function stopSpeak() {
-      speechSynthesis.cancel();
+      if (window.speechSynthesis) speechSynthesis.cancel();
     }
 
     updateUI();
+    if (window.speechSynthesis && speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = () => {};
+    }
   </script>
 </body>
 </html>
